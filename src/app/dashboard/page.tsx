@@ -45,7 +45,16 @@ export default function DashboardPage() {
 
         if (!active) return;
         setTeacher(meData.teacher);
-        setStudents(studentsData.students ?? []);
+        setStudents(
+        (studentsData.students ?? []).map((student: any) => ({
+          id: student.id,
+          name: student.name,
+          traitIds: student.trait_ids ?? [],
+          customTrait: student.custom_trait ?? undefined,
+          summary: student.summary ?? "",
+          updatedAt: student.updated_at,
+        }))
+      );
       } catch {
         if (active) setError("Gagal memuat data. Refresh halaman untuk mencoba lagi.");
       } finally {
