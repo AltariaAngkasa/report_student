@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -11,6 +12,7 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,14 +46,8 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         {/* Brand */}
         <div className="flex items-center justify-center gap-2.5 mb-6">
-          <div
-            className="flex h-11 w-11 items-center justify-center rounded-2xl text-xl"
-            style={{ background: "linear-gradient(135deg, var(--glow-violet), var(--glow-coral))" }}
-          >
-            🏮
-          </div>
           <span className="font-display text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
-            Lentera Kelas
+            Timedoor Academy
           </span>
         </div>
 
@@ -100,6 +96,7 @@ export default function RegisterPage() {
               <label htmlFor="password" className="block text-sm font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
                 Kata Sandi
               </label>
+              <div className="relative">
               <input
                 id="password"
                 type="password"
@@ -110,6 +107,14 @@ export default function RegisterPage() {
                 className="glass w-full rounded-xl px-4 py-3 text-sm outline-none placeholder:opacity-50"
                 style={{ color: "var(--text-primary)" }}
               />
+              <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute right-3 top-1/2 -translate-y-1/2"
+              >
+                {showPassword ? <EyeOff size={18}/>:<Eye size={18}/>}
+              </button>
+              </div>
             </div>
 
             {error && (
