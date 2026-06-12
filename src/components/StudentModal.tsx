@@ -77,7 +77,7 @@ export default function StudentModal({ open, student, onClose, onSave }: Student
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
-      style={{ backgroundColor: "rgba(10, 8, 30, 0.55)" }}
+      style={{ backgroundColor: "black" }} 
       onClick={onClose}
     >
       <div
@@ -179,7 +179,7 @@ export default function StudentModal({ open, student, onClose, onSave }: Student
               className="w-full sm:w-auto rounded-xl px-5 py-2.5 text-sm font-semibold transition-opacity disabled:opacity-60"
               style={{ backgroundColor: "var(--accent-gold)", color: "#181a3a" }}
             >
-              {isGenerating ? "Membuat kesimpulan..." : "✨ Buat Kesimpulan dengan AI"}
+              {isGenerating ? "Membuat kesimpulan..." : "✨ Buat Kesimpulan"}
             </button>
           </div>
 
